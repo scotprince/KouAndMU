@@ -1,0 +1,15 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Http.Extensions
+@{
+
+    var url = HttpContextAccessor.HttpContext?.Request?.GetDisplayUrl();
+    if (url.Contains("kouestates"))
+    {
+        Layout = "_Layout";
+    }
+    else
+    {
+        Layout = "_LayoutMU";
+
+    }
+}

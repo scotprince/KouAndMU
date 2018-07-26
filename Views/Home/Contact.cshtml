@@ -1,0 +1,120 @@
+﻿@model ContactFormModel
+@using Microsoft.Extensions.Configuration;
+@inject IConfiguration configuration;
+
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_LayoutMUBasic.cshtml";
+}
+
+
+       
+        <div class="col-md-6">
+            <div>
+                @if (ViewBag.Message == null)
+                {
+                    <div>
+                        <form id="myForm" method="post">
+                            <div class="form-group">
+                                <label asp-for="Name">Name</label>
+                                <input asp-for="Name" class="form-control" data-val-required="*Name is required." />
+                                <span asp-validation-for="Name"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email">Email</label>
+                                <input asp-for="Email" type="email" class="form-control" data-val-required="*Email is required." />
+                                <span asp-validation-for="Email"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Subject">Subject</label>
+                                <input asp-for="Subject" class="form-control" data-val-required="*Subject is required." />
+                                <span asp-validation-for="Subject"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Message">Message</label>
+                                <textarea rows="5" cols="15"
+                                          asp-for="Message" class="form-control" data-val-required="*Message is required."></textarea>
+                                <span asp-validation-for="Message"
+                                      class="text-danger"></span>
+
+                            </div>
+                            <div>
+                                <div id='recaptcha' class="g-recaptcha"
+                                     data-sitekey="6Ld8MGYUAAAAAF-agxDENNPPNukwYmf6q3Bsgp_M"
+                                     data-callback="onCompleted"></div>
+                                <div id="recaptcha-error" name="recaptcha-error" style="display:none"> ERROR!!</div>
+
+
+                            </div>
+                            <input id="sendEmail" type="submit" value="Send Email" class="btn btn-dark" disabled />
+                        </form>
+                    </div>
+                }
+            </div>
+
+            <div>
+                <div>
+                    @if (ViewBag.Message != null)
+                    {
+                        <div class="text-info">@ViewBag.Message</div>
+
+
+                    }
+                </div>
+            </div>
+        </div>
+        <script>
+            $('#myForm').submit(function (event) {
+                console.log('validation completed.');
+                //prevent Default functionality
+                e.preventDefault();
+
+                //get the action-url of the form
+                var actionurl = e.currentTarget.action;
+
+                //do your own request an handle the results
+                $.ajax({
+                    url: actionurl,
+                    type: 'post',
+                    dataType: 'application/json',
+                    data: $("#myform").serialize(),
+                    success: function (data) {
+                        // ... do something with the data...
+                    }
+                });
+
+                // });
+
+                //event.preventDefault(); //prevent form submit before captcha is completed
+
+                //var response = grecaptcha.getResponse();
+                ////recaptcha failed validation
+                //if (response.length == 0) {
+                //    $('#recaptcha-error').show();
+                //    $('#submit1').hide();
+                //    //alert('Provide input for captcha');
+                //    //$('.registrationError').empty();
+                //    //$('.registrationError').append('<li>Provide input for captcha</li>').show();
+                //    return false;
+                //}
+
+            });
+
+            //onCompleted = function () {
+            //    console.log('captcha completed 1.');
+            //    $('#recaptcha-error').hide();
+            //}
+
+
+            onCompleted = function () {
+                console.log('captcha completed 2.');
+                $('#recaptcha-error').hide();
+                $('#sendEmail').prop('disabled', false);
+                //$('#myForm').submit();
+                console.log('form submitted?.');
+                //alert('wait to check for "captcha completed" in the console.');
+            }
+        </script>

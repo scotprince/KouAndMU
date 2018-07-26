@@ -1,0 +1,78 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@model ContactFormModel
+@using Microsoft.AspNetCore.Http.Extensions
+@{
+
+    var url = HttpContextAccessor.HttpContext?.Request?.GetDisplayUrl();
+    if (url.Contains("kouestates"))
+    {
+        ViewData["Title"] = "KOU Estates";
+    }
+    else
+    {
+        ViewData["Title"] = "Maui Ultimate Frisbee";
+
+    }
+}
+<div>
+    <div class="col-md-6">
+        <div>
+            @if (ViewBag.Message == null || ViewBag.Message == "reCAPTCHA Error occured. Please try again")
+            {
+                <div>
+                    <form asp-controller="Home" asp-action="Index" method="post">
+                        <div class="form-group">
+                            <label asp-for="Name">Name</label>
+                            <input asp-for="Name" class="form-control" data-val-required="*Name is required." />
+                            <span asp-validation-for="Name"
+                                  class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email">Email</label>
+                            <input asp-for="Email" type="email" class="form-control" data-val-required="*Email is required." />
+                            <span asp-validation-for="Email"
+                                  class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Subject">Subject</label>
+                            <input asp-for="Subject" class="form-control" data-val-required="*Subject is required." />
+                            <span asp-validation-for="Subject"
+                                  class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Message">Message</label>
+                            <textarea rows="5" cols="15"
+                                      asp-for="Message" class="form-control" data-val-required="*Message is required."></textarea>
+                            <span asp-validation-for="Message"
+                                  class="text-danger"></span>
+                        </div>
+                        <div>
+                            @if (Model.RecapSiteKey.Length > 0)
+                            {
+                                <div class="g-recaptcha" data-sitekey="6Ld8MGYUAAAAAF-agxDENNPPNukwYmf6q3Bsgp_M"></div>
+                            }
+                            <button type="submit"
+                                    class="btn btn-success">
+                                Send
+                            </button>
+                        </div>
+                       
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div>
+            <div>
+                @if (ViewBag.Message != null)
+                {
+                    <div class="text-info">@ViewBag.Message</div>
+
+
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,137 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@model ContactFormModel
+@using Microsoft.AspNetCore.Http.Extensions
+@{
+
+    var url = HttpContextAccessor.HttpContext?.Request?.GetDisplayUrl();
+    if (url.Contains("kouestates"))
+    {
+        ViewData["Title"] = "KOU Estates";
+    }
+    else
+    {
+        ViewData["Title"] = "Maui Ultimate Frisbee";
+
+    }
+}
+<header class="masthead text-center text-white d-flex">
+    <div class="container my-auto">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h1 class="text-uppercase">
+                    <strong>Maui Ultimate Frisbee</strong>
+                </h1>
+                <hr>
+            </div>
+            <div class="col-lg-8 mx-auto">
+                <p class="text-faded mb-5">Aloha and welcome to the Maui Ultimate Frisbee scene!</p>
+                <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+
+            </div>
+
+        </div>
+    </div>
+</header>
+<section class="bg-primary" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading text-white">We've got what you need for Maui Ultimate Frisbee!</h2>
+                <hr class="light my-4">
+                <p class="text-faded mb-4">
+                    Thursday nights under the lights at <a class="regular" href="https://goo.gl/maps/H42YCQSpupK2">Kalama Park in Kihei.</a>
+                </p>
+                <p class="text-faded mb-4">Fridays and Wednesdays (5ish to little past sunset) at <a class="regular" href="https://goo.gl/maps/peku5ZMTc642">Baldwin Beach Park.</a></p>
+                <p class="text-faded mb-4">Sundays (5ish to little past sunset) in Kula just below the <a class="regular" href="https://goo.gl/maps/HQ5i1ejuwA82">Kula Elementary School.</a> Fun BBQ afterwards so bring something to grill or share!</p>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<section class="bg-dark text-white"></section>
+<section class="bg-primary" id="southmaui">
+    <div class="container">
+        <div class="row">
+            <p class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading text-white">South Maui (Kihei) Ulitmate Frisbee Scene</h2>
+                <hr class="light my-4">
+            <p class="text-faded mb-4">
+                This is an Ultimate Frisbee only pick up group. We play Thursday nights under the lights at  <a class="regular" href="https://goo.gl/maps/H42YCQSpupK2">Kalama Park in Kihei</a>
+                from 7:30-10:00pm. All skill levels are welcome and it's a coed format, so come out and have a great time meeting great people.
+                Please check out the <a class="regular" href="https://www.facebook.com/groups/SouthMauiUltimate/"> South Maui Ultimate Facebook group </a>for latest info and to ask any questions.
+            </p>
+            <div class="bg-white "><a href="https://www.instagram.com/southmauiultimate/"><i class="fa fa-instagram fa-3x mb-3 sr-contact"></i>  Follow SouthMauiUltimate on Instagram! </a></div>
+            <!-- LightWidget WIDGET -->
+            <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/615a35a83b645fcf9c2314e2717c4cad.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+        </div>
+    </div>
+    </div>
+</section>
+<section class="bg-dark text-white"></section>
+<section class="bg-primary" id="northshore">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading text-white">North Shore Maui (Paia) Ulitmate and Goaltimate Frisbee Scene</h2>
+                <hr class="light my-4">
+                <p class="text-faded mb-4">
+                    This is an Ultimate Frisbee and Goaltimate Frisbee pick up group. We play Fridays and Wednesdays late afternoon starting between 5 and 5:45ish (start time depends on sunset time) at  <a class="regular" href="https://goo.gl/maps/peku5ZMTc642">Baldwin Beach Park </a>
+                    to a little past sunset. If we don't have numbers for Ultimate (14+) we usually just play Goaltimate.  All skill levels are welcome and it's a coed format, so come out and have a great time meeting great people!
+                    Please check out the <a class="regular" href="https://www.facebook.com/groups/MauiUltimate/"> MU Facebook group </a>for latest info and to ask any questions.
+                </p>
+                <div class="bg-white"> <a href="https://www.instagram.com/mauiultimate/"><i class="fa fa-instagram fa-3x mb-3 sr-contact"></i> Follow MauiUltimate on Instagram!</a></div>
+                <!-- LightWidget WIDGET -->
+                <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/493a6c4d80495af88605f4773e051289.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-dark text-white"></section>
+<section class="bg-primary" id="upcountry">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading text-white">Up Country Maui (Kula) Ulitmate and Goaltimate Frisbee Scene</h2>
+                <hr class="light my-4">
+                <p class="text-faded mb-4">
+                    We play Sundays late afternoon starting between 5 and 5:45ish (start time depends on how late the sunset time is) to a little past sun down. <a class="regular" href="https://goo.gl/maps/HQ5i1ejuwA82">Kula Park </a> which is below Kula Elementary School
+                    If we don't have numbers for Ultimate (14+) we usually just play Goaltimate.  All skill levels are welcome and it's a coed format, so come out and have a great time meeting great people!
+                    We also do a group BBQ afterwards so bring something to grill and/or share!  Please check out the <a class="regular" href="https://www.facebook.com/groups/MauiUltimate/"> MU Facebook  group </a>for latest info and to ask any questions.
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-dark text-white"></section>
+<section id="facebook">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading">Join us on Facebook!</h2>
+                <hr class="my-4">
+                <p class="mb-5">Find out more about Ultimate Frisbee on Maui</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 ml-auto text-center">
+                <i class="fa fa-facebook fa-3x mb-3 sr-contact"></i>
+                <p>
+                    <a class="btn btn-light btn-xl sr-button" href="https://www.facebook.com/groups/SouthMauiUltimate/">South Maui Group</a>
+                </p>
+            </div>
+            <div class="col-lg-4 ml-auto text-center">
+                <i class="fa fa-facebook fa-3x mb-3 sr-contact"></i>
+                <p>
+                    <a class="btn btn-light btn-xl sr-button" href="https://www.facebook.com/groups/MauiUltimate/">Maui North Shore & Up Country</a>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<section class="bg-dark text-white"></section>
+
